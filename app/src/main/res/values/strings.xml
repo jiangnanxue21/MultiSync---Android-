@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MultiSync</string>
+    <string name="menu_settings">Settings</string>
+    <string name="btn_config">Configure</string>
+    <string name="btn_start">Sync</string>
+
+</resources>

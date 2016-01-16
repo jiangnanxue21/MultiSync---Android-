@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/google-oauth-client-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="84bb5a223e42a5ba974ad51c9712253e662aa1bb">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/google-oauth-client-1.18.0-rc-3bf8ab8f920133ad49820ffc41af1812fa777609.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/php-serializer-3.0.2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9dad14802c841274ab9d3c64f38c1831fd8ed9c6">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/php-serializer-3.0.2.1-1a415f9df3d5873e1eb2ad14fa7703ab5d27db83.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/jackson-mapper-asl-1.3.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="739756cf2a525ab6f3ab0b7ea544f4a6b4107d85">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/jackson-mapper-asl-1.3.0-715f2c374b66f858f1b3a37188e0e2fa1655a7a8.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/jackson-core-asl-1.3.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b6b392c0b47cd93569948c20e4eb44eda8cc863a">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/jackson-core-asl-1.3.0-90887e310f15375d179c9a9c6bb7f197dff516cb.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/httpmime-4.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd1973851926925e02d0bbdf4ec0f7435d8292ce">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/httpmime-4.0.3-83b72f66ddf1729dbd0dc2878bd5734a76a3aa00.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/google-api-client-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="15feacc39aa29e06a63bf9041c6e5898f06bade9">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/google-api-client-1.18.0-rc-2b75153d8bce738cdbf6f9ef276a90d6107c58e9.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/android-support-v4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="48c94ae70fa65718b382098237806a5909bb096e">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/android-support-v4-1ede6a030f02b4ce084f7148ac39d0f13e30caff.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/httpcore-4.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2cef8e735e306f6be94b609be815854f9cf36eb6">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/httpcore-4.0.1-43be6f3aecccaa67d1072980467ef0a2b96842bc.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/google-http-client-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="041f593dcc111f46f32676e9f6856430f1294ddf">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/google-http-client-1.18.0-rc-a7680219cfaad7097db9b564f914d5bc36c53a33.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/commons-codec.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fd32786786e2adb664d5ecc965da47629dca14ba">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/commons-codec-f1fdaaa73d89ae702de747f9b35e9e36ac8733c6.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/google-http-client-jackson2-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="10eb3b8d9551a048ba3ec1b2a5ba7524cd01a45a">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.18.0-rc-ecc269e89717fa9aa4ece703832a3b2f63fd29ba.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/servlet-api-2.5.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5959582d97d8b61f4d154ca9e495aafd16726e34">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/servlet-api-2.5-ee084d7f1a2791aa23d382712dc70b5dbae15eb1.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/openbeans-1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c41a1082d08676a42c780dc77335afb636be113c">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/openbeans-1.0-54571813b0c522fef1dcaf8bcb122b7349695d52.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/Memcached-Java-Client-3.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="aa09215ff94a1a167fcefbc9516e004b13dfbf40">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/Memcached-Java-Client-3.0.0-4adc5257ef159396f2caeae4f43095f5007b7e7a.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/commons-httpclient-3.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="964cd74171f427720480efdec40a7c7f6e58426a">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/commons-httpclient-3.1-80fd61a9515d7d408b53f0db0c477af965327dad.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/google-api-services-drive-v2-rev121-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fafcc2b91e4ad1c04bba49341ab0b5e6545f4308">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/google-api-services-drive-v2-rev121-1.18.0-rc-a78361c890d6ac0a1b77b1e729d3c63b1819ae57.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/commons-io-2.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7ffdb02f95af1c1a208544e076cea5b8e66e731a">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/commons-io-2.0.1-de076a9c8c4ce6bc6e759edadd17e7d6672e3afb.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/commons-logging-1.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2d859791fbf7d880591864bd4004d8442a8a3b81">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/commons-logging-1.1.1-b9e67d440cb1bc4da5e91d20c36bbca88ae7b952.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/httpclient-4.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="eebf00fc3417031e9fa34afd85ccf11365ca2304">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/httpclient-4.0.3-eb1281abf0b243850cd738d3cf11f73e9d400912.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/commons-lang-2.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="16313e02a793435009f1e458fa4af5d879f6fb11">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/commons-lang-2.4-7a079c136dac3ee52099c1fb9ac9d97fa2dca253.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/json-simple-1.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c9ad4a0850ab676c5c64461a05ca524cdfff59f1">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/json-simple-1.1.1-3bf4a80ecf482a47a0fae39c816646f5fc814d41.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/guava-11.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="57b40a943725d43610c898ac0169adf1b2d55742">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/guava-11.0.1-c142a7987e32982bd47f2fe8079edc108ba88cd3.jar" />
+    </item>
+    <item
+        jar="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/src/main/java/jackson-core-2.1.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
+        <dex dex="/Users/xue/Desktop/MultiSync - 均衡分配(Android)1/app/build/intermediates/pre-dexed/debug/jackson-core-2.1.3-e213ed176a09f18c130e04e4615d9761963881d9.jar" />
+    </item>
+
+</items>

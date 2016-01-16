@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Configuration</title>
+<style type="text/css">
+	b.rounder{display:block;background: #FFF}
+	b.rounder b{display:block;height:1px;overflow: hidden; background: #404040;}
+	b.r1{margin: 0 1px}
+	b.r2{margin: 0 2px}
+	.content{height:50px;text-align:left; padding-left:50px; padding-top:30px; background: #404040;color:#CCCCCC;font-size:30px;font-family: Arial, Helvetica, sans-serif;}
+	
+	.table{width:100%;margin-bottom:16px;}.table th,.table td{padding:8px;line-height:16px;text-align:left;border-top:1px solid #dddddd;}
+	.table th{font-weight:bold;}
+	.table thead th{vertical-align:bottom;}
+	.table caption+thead tr:first-child th,.table caption+thead tr:first-child td,.table colgroup+thead tr:first-child th,.table colgroup+thead tr:first-child td,.table thead:first-child tr:first-child th,.table thead:first-child tr:first-child td{border-top:0;}
+	.table tbody+tbody{border-top:2px solid #dddddd;}
+	.table-condensed th,.table-condensed td{padding:4px 5px;}
+	.table-bordered{border:1px solid #dddddd;border-collapse:separate;*border-collapse:collapse;border-left:0;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}.table-bordered th,.table-bordered td{border-left:1px solid #dddddd;}
+	.table-bordered caption+thead tr:first-child th,.table-bordered caption+tbody tr:first-child th,.table-bordered caption+tbody tr:first-child td,.table-bordered colgroup+thead tr:first-child th,.table-bordered colgroup+tbody tr:first-child th,.table-bordered colgroup+tbody tr:first-child td,.table-bordered thead:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child td{border-top:0;}
+	.table-bordered thead:first-child tr:first-child th:first-child,.table-bordered tbody:first-child tr:first-child td:first-child{-webkit-border-top-left-radius:4px;border-top-left-radius:4px;-moz-border-radius-topleft:4px;}
+	.table-bordered thead:first-child tr:first-child th:last-child,.table-bordered tbody:first-child tr:first-child td:last-child{-webkit-border-top-right-radius:4px;border-top-right-radius:4px;-moz-border-radius-topright:4px;}
+	.table-bordered thead:last-child tr:last-child th:first-child,.table-bordered tbody:last-child tr:last-child td:first-child,.table-bordered tfoot:last-child tr:last-child td:first-child{-webkit-border-radius:0 0 0 4px;-moz-border-radius:0 0 0 4px;border-radius:0 0 0 4px;-webkit-border-bottom-left-radius:4px;border-bottom-left-radius:4px;-moz-border-radius-bottomleft:4px;}
+	.table-bordered thead:last-child tr:last-child th:last-child,.table-bordered tbody:last-child tr:last-child td:last-child,.table-bordered tfoot:last-child tr:last-child td:last-child{-webkit-border-bottom-right-radius:4px;border-bottom-right-radius:4px;-moz-border-radius-bottomright:4px;}
+	.table-bordered caption+thead tr:first-child th:first-child,.table-bordered caption+tbody tr:first-child td:first-child,.table-bordered colgroup+thead tr:first-child th:first-child,.table-bordered colgroup+tbody tr:first-child td:first-child{-webkit-border-top-left-radius:4px;border-top-left-radius:4px;-moz-border-radius-topleft:4px;}
+	.table-bordered caption+thead tr:first-child th:last-child,.table-bordered caption+tbody tr:first-child td:last-child,.table-bordered colgroup+thead tr:first-child th:last-child,.table-bordered colgroup+tbody tr:first-child td:last-child{-webkit-border-top-right-radius:4px;border-top-right-radius:4px;-moz-border-radius-topright:4px;}
+	.table-striped tbody tr:nth-child(odd) td,.table-striped tbody tr:nth-child(odd) th{background-color:#f9f9f9;}
+	.table-hover tbody tr:hover td,.table-hover tbody tr:hover th{background-color:#f5f5f5;}
+</style>
+<script lang="javascript">
+	function openSubWin(url)  
+	{  
+		OpenWindow = window.open(url, 'newwindow', 'height=700, width=600, top=0, left=0, toolbar=no, menubar=yes, scrollbars=yes, resizable=yes, location=no, status=no');  
+	}  
+</script>
+</head>
+<body>
+<div class="main">
+	<b class="rounder"><b class="r2"></b><b class="r1"></b></b>
+  <div class="content">Synchronization Setting</div>
+	<b class="rounder"><b class="r1"></b><b class="r2"></b></b>
+</div>
+<p>
+<form action="save_setting" method="post" id="save_config" name="synchronization_setting">
+<table align="center" class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+		<th>Service</th>
+		<th>Name</th>
+		<th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+	<tr>
+		<td rowspan="2">Common</td>
+		<td>Synchronous interval(sec)</td>
+		<td><input type="text" name="synctime" value="10" size="80"/></td>
+	</tr>
+	<tr>
+		<td>Synchronous path</td>
+		<td><input type="text" name="syncpath" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td rowspan="3">Google Drive<input type="button" value="Login" onclick="openSubWin('/gdrive')"/></td>
+		<td>Access Token</td>
+		<td><input type="text" name="gdrive_token1" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>Refresh Token</td>
+		<td><input type="text" name="gdrive_token2" value="" size="80"/></td>
+	</tr>
+  
+	<tr>
+		<td>RemotePath</td>
+		<td><input type="text" name="gdrive_path" value="/" size="80"/></td>
+	</tr>
+	<tr>
+		<td rowspan="3">SkyDrive<input type="button" value="Login" onclick="openSubWin('https://login.live.com/oauth20_authorize.srf?client_id=00000000480E9B51&scope=wl.offline_access%20wl.skydrive_update&response_type=code&redirect_uri=http://file-sync.oicp.net:9000/code');"/></td>
+		<td>Access Token</td>
+		<td><input type="text" name="skydrive_token1" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>Refresh Token</td>
+		<td><input type="text" name="skydrive_token2" value="" size="80"/></td>
+	</tr>
+  
+	<tr>
+		<td>Remote Path</td>
+		<td><input type="text" name="skydrive_path" value="/" size="80"/></td>
+	</tr>
+	<tr>
+		<td rowspan="3">Dropbox<input type="button" value="Login" onclick="openSubWin('/dropbox');" /></td>
+		<td>AccessToken Key</td>
+		<td><input type="text" name="dropbox_token1" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>AccessToken Secret</td>
+		<td><input type="text" name="dropbox_token2" value="" size="80"/></td>
+	</tr>
+  
+	<tr>
+		<td>Remote Path</td>
+		<td><input type="text" name="dropbox_path" value="/" size="80"/></td>
+	</tr>
+		<tr>
+		<td rowspan="3">Box<input type="button" value="Login" onclick="openSubWin('https://app.box.com/api/oauth2/authorize?response_type=code&client_id=2i8crisqk42csbk7gru3ma28wl5e3cr5&redirect_uri=http://localhost:9000/box_token')" /></td>
+		<td>Access Token</td>
+		<td><input type="text" name="box_token1" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>Refresh Token</td>
+		<td><input type="text" name="box_token2" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>Remote Path</td>
+		<td><input type="text" name="box_path" value="/" size="80"/></td>
+	</tr>
+	<tr>
+		<td rowspan="3">百度网盘<input type="button" value="Login" onclick="openSubWin('https://openapi.baidu.com/oauth/2.0/authorize?response_type=code&client_id=GgI16Ahh3BMCbtfLDMhIKBkC&confirm_login=1&scope=netdisk&redirect_uri=http://file-sync.oicp.net:9000/baidu_token')" /></td>
+		<td>Access Token</td>
+		<td><input type="text" name="baidu_token1" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>Refresh Token</td>
+		<td><input type="text" name="baidu_token2" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>Remote Path</td>
+		<td><input type="text" name="baidu_path" value="/apps/file_sync/" size="80"/></td>
+	</tr>
+	<tr>
+		<td rowspan="3">金山快盘<input type="button" value="Login" onclick="openSubWin('/kuaipan');"/></td>
+		<td>AccessToken Key</td>
+		<td><input type="text" name="kuaipan_token1" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>AccessToken Secret</td>
+		<td><input type="text" name="kuaipan_token2" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>Remote Path</td>
+		<td><input type="text" name="kuaipan_path" value="/" size="80"/></td>
+	</tr>
+		<tr>
+		<td rowspan="3">华为网盘<input type="button" value="Login" onclick="openSubWin('/dbank')" /></td>
+		<td>AccessToken Key</td>
+		<td><input type="text" name="dbank_token1" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>AccessToken Secret</td>
+		<td><input type="text" name="dbank_token2" value="" size="80"/></td>
+	</tr>
+	<tr>
+		<td>Remote Path</td>
+		<td><input type="text" name="dbank_path" value="/Netdisk/" size="80"/></td>
+	</tr>
+  </tbody>
+</table>
+<div align="center"><input type="submit" id="button" value="save" />      </div>
+</form>
+</p>
+</body>
+
+</html>
