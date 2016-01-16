@@ -27,7 +27,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-import java.util.concurrent.TimeUnit;
 
 import MD5Util.MD5FileUtil;
 import MultiSyncAPI.APIs;
@@ -38,6 +37,8 @@ import MultiSyncAPI.DropboxAPIs;
 import MultiSyncAPI.GDriveAPIs;
 import MultiSyncAPI.KuaipanAPIs;
 import MultiSyncAPI.SkydriveAPIs;
+
+import static android.os.Process.killProcess;
 
 public class SyncProc {
 	public static TreeMap<String, APIs> service;
@@ -106,7 +107,7 @@ public class SyncProc {
 
 				log.show(null, "Downloading file index...");
 
-				//上传的时候将该代码注释
+				//上传的时候将该代码注释,不获取服务器端的index
 				getServerIndex();
 				log.show(null, server_index.size() + " files on server");
 
@@ -128,8 +129,9 @@ public class SyncProc {
 				String save = String.format("%s \t %d\n",date,time);
 				out.write(save);
 				out.close();
-				//同步完成则休眠
-				TimeUnit.SECONDS.sleep(600);
+				//同步完成则关闭
+				killProcess(android.os.Process.myPid());
+
 			} catch (Exception e) {
 				log.show(null, "Synchronize error: " + e.getMessage());
 			}
@@ -519,9 +521,6 @@ public class SyncProc {
 		File dir = new File(path);
 		File[] files = dir.listFiles();
 		TreeMap<String, FileDetails> ret_index = new TreeMap<String, FileDetails>();
-
-		//让客户端持续下载文件
-//		files=null;
 
 		if (files == null)
 			return ret_index;
