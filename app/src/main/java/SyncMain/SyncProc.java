@@ -108,7 +108,7 @@ public class SyncProc {
 				log.show(null, "Downloading file index...");
 
 				//上传的时候将该代码注释,不获取服务器端的index
-				getServerIndex();
+//				getServerIndex();
 				log.show(null, server_index.size() + " files on server");
 
 				updateServer();

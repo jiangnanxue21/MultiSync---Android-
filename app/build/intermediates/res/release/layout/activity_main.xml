@@ -5,8 +5,8 @@
     android:background="#EEEEEE"
     tools:context=".MainActivity" >
 
-    <Switch
-        android:id="@+id/switch1"
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/switch1"
+        android:layout_below="@+id/button"
         android:text="@string/btn_config"
         android:checked="false" />
 
