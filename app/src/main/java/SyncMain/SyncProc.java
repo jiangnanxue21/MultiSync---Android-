@@ -20,6 +20,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -53,10 +55,13 @@ public class SyncProc {
 	private static boolean server_changed;
 	private static boolean local_changed;
 
+//	private static HashMap<String,Long> trafficAssign = new HashMap<String, Long>();
+
 
 	public static void main(StatusLogger logger) throws Exception {
 		log = logger;
-		updateFreeSpace();
+		trafficAware();
+//		updateFreeSpace();
 		syncMain();
 	}
 
@@ -108,7 +113,7 @@ public class SyncProc {
 				log.show(null, "Downloading file index...");
 
 				//上传的时候将该代码注释,不获取服务器端的index
-//				getServerIndex();
+				getServerIndex();
 				log.show(null, server_index.size() + " files on server");
 
 				updateServer();
@@ -139,6 +144,7 @@ public class SyncProc {
 			Thread.sleep(interval * 1000);
 		}
 	}
+
 
 	private static void generateIndexfile() throws IOException {
 		for (String fn : deleted_list) {
@@ -272,6 +278,8 @@ public class SyncProc {
 	}
 
 	private static boolean optDispatch(Entry<String, FileDetails> entry) throws Exception {
+		double design ;
+		DecimalFormat df   = new DecimalFormat("######0.00");
 		boolean success = true;
 		String fn = entry.getKey();
 		FileDetails fd = entry.getValue();
@@ -279,6 +287,8 @@ public class SyncProc {
 		log.show(null, "Prepare to upload " + fn + "...");
 		if (f.length() <= 0)
 			return true;
+
+		// if file has uploaded, return true
 		for (Entry<String, FileDetails> srv_entry : server_index.entrySet()) {
 			FileDetails sfd = srv_entry.getValue();
 			if (sfd.MD5String.equals(fd.MD5String)) {
@@ -287,6 +297,8 @@ public class SyncProc {
 			}
 
 		}
+
+		//if file's size less than split_size, it will not split
 		if (f.length() < Common.SPILIT_SIZE) {
 			for (Entry<String, APIs> api_entry : service.entrySet()) {
 				try {
@@ -298,32 +310,61 @@ public class SyncProc {
 			}
 		} else {
 			log.show(null, "Collecting service status...");
-			updateFreeSpace();
-			HashMap<APIs, Long> dispatch = new HashMap<APIs, Long>();
+//			updateFreeSpace();
+			HashMap<APIs, Long> dispatch = new HashMap<>();
 			Long remain = f.length();
-			for (int i = 0; i < usable_srv.size(); i++)
-				if (usable_srv.get(i).free_space > Common.RESERVE_SPACE) {
+
+
+			//calculate the full probe time and prepare for design
+			Long probeTime = 0L;
+			for (int i = 0; i < usable_srv.size(); i++) {
+				APIs api = usable_srv.get(i);
+				probeTime+=api.probeTime;
+			}
+
+
+
+			for (int i = 0; i < usable_srv.size(); i++){
+//				if (usable_srv.get(i).free_space > Common.RESERVE_SPACE) {
 					APIs api = usable_srv.get(i);
 					Long disp;
-					disp = Math.min(api.free_space - Common.RESERVE_SPACE,
-							remain / (usable_srv.size() - i));
+//					disp = Math.min(api.free_space - Common.RESERVE_SPACE,
+//							remain / (usable_srv.size() - i));
+				if (i<usable_srv.size()-1) {
+					double design1 = (api.probeTime * 1.0) / (probeTime * 1.0);
+					design = Double.valueOf(df.format(design1));
+					disp = (long) (design * f.length());
+//					System.out.println("disp "+i+" "+disp);
 					dispatch.put(api, disp);
 					remain -= disp;
+				}else {
+					disp = remain ;
+					dispatch.put(api,disp);
+//					System.out.println("disp " + i + " " + disp);
+					remain = 0L;
 				}
+			}
 			if (remain > 0)
 				throw new Exception("no enough free space");
+//
+//			for (Map.Entry<APIs,Long> d:dispatch.entrySet()){
+//				APIs api = d.getKey();
+//				System.out.println(api.api_name);
+//				System.out.println(d.getValue());
+//			}
+
 			/* split file */
 			log.show(null, "Uploading " + fn);
 			BufferedInputStream fin = new BufferedInputStream(new FileInputStream(f));
 			int idx = 1;
-			ArrayList<String> parts = new ArrayList<String>();
+			ArrayList<String> parts = new ArrayList<>();
 			for (Entry<APIs, Long> disp_entry : dispatch.entrySet()) {
 				File part = new File(Common.HOME_PATH + fd.MD5String + ".sp" + idx);
 				BufferedOutputStream fout = new BufferedOutputStream(new FileOutputStream(part));
 				copyStream(fout, fin, disp_entry.getValue());
 				fout.close();
 				/*upload*/
-				HashMap<String, String> params = new HashMap<String, String>();
+				HashMap<String, String> params = new HashMap<>();
 				String server_fn = fd.MD5String + ".sp" + idx;
 				params.put("func", "uploadFile");
 				params.put("filename", Common.HOME_PATH + server_fn);
@@ -433,6 +474,50 @@ public class SyncProc {
 		Collections.sort(usable_srv, comp);
 	}
 
+	private static void trafficAware() throws InterruptedException, IOException {
+
+		String str = "012345678vasdjhklsadfqwiurewopt";
+		String fileTemp = "temp";
+
+		File temp = new File(sync_path + fileTemp);
+		if (temp.exists())
+			temp.delete();
+		temp.createNewFile();
+
+		PrintWriter pw = new PrintWriter(new FileWriter(temp));
+		int len = str.length();
+		int loop = 10;
+		for (int i = 0; i < loop; i++) {
+			StringBuilder s = new StringBuilder();
+			for (int j = 0; j < 1024; j++) {
+				s.append(str.charAt((int) (Math.random() * len)));
+			}
+			pw.println(s.toString());
+		}
+		pw.close();
+
+		long start;
+		long period;
+//		String apiName;
+		for (Entry<String, APIs> api_entry : service.entrySet()) {
+			try {
+				APIs api = api_entry.getValue();
+//				apiName = api.api_name;
+				start = System.currentTimeMillis();
+				api.uploadFile(sync_path + fileTemp, fileTemp);
+				period = System.currentTimeMillis() - start;
+//				trafficAssign.put(apiName,period);
+				api.probeTime = period ;
+//				System.out.println(api.probeTime);
+
+			} catch (Exception e) {
+			}
+		}
+		if (temp.exists())
+			temp.delete();
+	}
+
+
 	public static void loadConfig(StatusLogger log) throws Exception {
 
 		HashMap<String, String> param_table = new HashMap<String, String>();
@@ -440,7 +525,7 @@ public class SyncProc {
 
 		sync_path = param_table.get("syncpath");
 		interval = Integer.parseInt(param_table.get("synctime"));
-		service = new TreeMap<String, APIs>();
+		service = new TreeMap<>();
 
 		sync_path = sync_path.replaceAll("\\\\", "/");
 		if (sync_path.length() == 0
@@ -513,8 +598,10 @@ public class SyncProc {
 		usable_srv = new ArrayList<APIs>();
 		
 		/* add services */
-		for (Entry<String, APIs> entry : service.entrySet())
+		for (Entry<String, APIs> entry : service.entrySet()) {
 			log.addService(entry.getKey());
+			usable_srv.add(entry.getValue());
+		}
 	}
 
 	private static TreeMap<String, FileDetails> getLocalIndex(String path) throws IOException {

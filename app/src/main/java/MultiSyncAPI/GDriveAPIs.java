@@ -6,18 +6,6 @@
 
 package MultiSyncAPI;
 
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.HashMap;
-import java.util.Map;
-
-import SyncMain.Common;
-import SyncMain.SyncProc;
-
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.http.FileContent;
 import com.google.api.client.http.GenericUrl;
@@ -31,6 +19,18 @@ import com.google.api.services.drive.model.About;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
 import com.google.api.services.drive.model.ParentReference;
+
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
+import SyncMain.Common;
+import SyncMain.SyncProc;
 
 public class GDriveAPIs extends APIs{
 	public static String CLIENT_ID = "886570393339.apps.googleusercontent.com";
@@ -105,6 +105,7 @@ public class GDriveAPIs extends APIs{
 		pr.setId(folder_id);
 
 		java.io.File fileContent = new java.io.File(filename);
+		System.out.println(fileContent.getAbsolutePath()+" gfdgffdfdbfdbdfb");
 		String mime_type = getMimeType(fileContent.getAbsolutePath());
 		FileContent mediaContent = new FileContent(mime_type, fileContent);
 
@@ -114,19 +115,23 @@ public class GDriveAPIs extends APIs{
 		body.setParents(prlist);
 
 		File res;
-		if (file_id == null) {
-			if (mediaContent.getLength() <= 0)
-				res = service.files().insert(body).execute();
-			else
-				res = service.files().insert(body, mediaContent).execute();
-			name2id.put(remotename, res.getId());
-			id2name.put(res.getId(), remotename);
-		} else {
-			if (mediaContent.getLength() <= 0)
-				res = service.files().update(file_id, body).execute();
-			else
-				res = service.files().update(file_id, body, mediaContent)
-						.execute();
+		try {
+			if (file_id == null) {
+				if (mediaContent.getLength() <= 0)
+					res = service.files().insert(body).execute();
+				else
+					res = service.files().insert(body, mediaContent).execute();
+				name2id.put(remotename, res.getId());
+				id2name.put(res.getId(), remotename);
+			} else {
+				if (mediaContent.getLength() <= 0)
+					res = service.files().update(file_id, body).execute();
+				else
+					res = service.files().update(file_id, body, mediaContent)
+							.execute();
+			}
+		}catch (Exception e){
+			e.printStackTrace();
 		}
 
 		//System.out.println("FileID: " + res.getId());

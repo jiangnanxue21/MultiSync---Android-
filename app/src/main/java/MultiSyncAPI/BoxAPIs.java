@@ -21,8 +21,8 @@ import SyncMain.Common;
 import SyncMain.SyncProc;
 
 public class BoxAPIs extends APIs {
-	public static final String CLIENT_ID		= "8wjitkbcpd7y6ondcqq8glv0c28uxqtc";
-	public static final String CLIENT_SECRET	= "P9j3sT6dD1xuYkoiAfCJC54gYDuK2bzl";
+	public static final String CLIENT_ID		= "8t0n3dy7jew1kagr7ce3d272u8i8klsp";
+	public static final String CLIENT_SECRET	= "rIAaRpENAWBGLyaWTNSIbnHQLdyGGTiX";
 	private static final String API_URL 		= "https://api.box.com/2.0";
 	private static final String DEFAULT_CHARSET = "UTF-8";
 	private static final int CONN_TIMEOUT 		= 20000;

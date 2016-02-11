@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="php-serializer-3.0.2.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/src/main/java/php-serializer-3.0.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

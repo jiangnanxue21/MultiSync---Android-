@@ -14,6 +14,7 @@ public abstract class APIs {
 	public long free_space;
 	public TreeSet<String> root_list;
 	public MultiProcess thread;
+	public long probeTime ;
 	
 	public APIs() {
 		root_list = new TreeSet<String>();
